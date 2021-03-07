@@ -1,17 +1,46 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Album from '../components/Album';
+import { StyleSheet, Text } from 'react-native';
+import AlbumCategory from '../components/AlbumCategory';
 
-const album = {
+import { View } from '../components/Themed';
+
+
+const albumCategory = {
   id: '1',
-  imageUri: 'https://picsum.photos/200',
-  artistsHeadline: 'Barões da Pisadinha, Zé Vaqueiro e Gaviões do Forró'
+  title: 'Chama na grande papai!',
+  albums: [
+    {
+      id: '1',
+      imageUri: 'https://picsum.photos/200',
+      artistsHeadline: 'Barões da Pisadinha'
+    },
+    {
+      id: '2',
+      imageUri: 'https://picsum.photos/200',
+      artistsHeadline: 'Tarcísio do Acordeon'
+    },
+    {
+      id: '3',
+      imageUri: 'https://picsum.photos/200',
+      artistsHeadline: 'Saia Rodada'
+    },
+    {
+      id: '4',
+      imageUri: 'https://picsum.photos/200',
+      artistsHeadline: 'Gaviões do forró'
+    },
+    {
+      id: '5',
+      imageUri: 'https://picsum.photos/200',
+      artistsHeadline: 'Unha Pintada'
+    },
+  ]
 }
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-     <Album album={album} />
+     <AlbumCategory title={albumCategory.title} albums={albumCategory.albums} />
     </View>
   );
 }
