@@ -20,42 +20,31 @@ export default function BottomTabNavigator() {
       initialRouteName="TabOne"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="Home"
+        name="Início"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <Entypo name="home" size={30} color={color} style={{ marginBottom: -3 }}/>,
         }}
       />
       <BottomTab.Screen
-        name="Search"
+        name="Buscar"
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => <EvilIcons name="search" size={30} color={color} style={{ marginBottom: -3 }}/>,
         }}
       />
       <BottomTab.Screen
-        name="Your Library"
+        name="Sua biblioteca"
         component={TabTwoNavigator}
         options={{
           tabBarIcon: ({ color }) => <MaterialIcons
             name="my-library-music" size={30} color={color} style={{ marginBottom: -3 }}/>,
         }}
       />
-      <BottomTab.Screen
-        name="Premium"
-        component={TabTwoNavigator}
-        options={{
-          tabBarIcon: ({ color }) => <FontAwesome5
-            name="spotify" size={30} color={color} style={{ marginBottom: -3 }}/>,
-        }}
-      />
     </BottomTab.Navigator>
   );
 }
 
-
-// Each tab has its own navigation stack, you can read more about this pattern here:
-// https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createStackNavigator<TabOneParamList>();
 
 function TabOneNavigator() {
@@ -71,7 +60,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="AlbumScreen"
         component={AlbumScreen}
-        options={{ title: 'Album' }}
+        options={{ headerShown: false}}
       />
     </TabOneStack.Navigator>
   );

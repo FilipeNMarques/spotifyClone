@@ -20,6 +20,9 @@ export type TabTwoParamList = {
 export type AlbumDefaultProps = {
     id: string
     imageUri: string
+    name: string;
+    by: string;
+    numberOfLikes: number;
     artistsHeadline: string
 }
 

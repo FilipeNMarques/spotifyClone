@@ -1,6 +1,7 @@
 import { useRoute } from '@react-navigation/native'
 import React from 'react'
-import { Text, StyleSheet, FlatList } from 'react-native'
+import { Text, FlatList, Image, TouchableOpacity } from 'react-native'
+import AlbumHeader from '../components/AlbumHeader'
 import SongListItem from '../components/SongListItem'
 
 import { View } from '../components/Themed'
@@ -15,9 +16,11 @@ const AlbumScreen = () => {
   return (
     <View>
       <FlatList
+        ListHeaderComponent={() => <AlbumHeader album={albumDetails}/>}
         data={albumDetails.songs}
         renderItem={({item}) => <SongListItem song={item} />}
         keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   )
