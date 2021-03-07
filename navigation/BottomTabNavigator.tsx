@@ -64,11 +64,12 @@ const TabOneStack = createStackNavigator<TabOneParamList>();
 
 function TabOneNavigator() {
   return (
-    <TabOneStack.Navigator>
+    <TabOneStack.Navigator screenOptions={{
+      headerShown: false
+    }}>
       <TabOneStack.Screen
         name="TabOneScreen"
         component={HomeScreen}
-        options={{ headerTitle: 'Tab One Title' }}
       />
     </TabOneStack.Navigator>
   );
@@ -82,7 +83,6 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
       />
     </TabTwoStack.Navigator>
   );

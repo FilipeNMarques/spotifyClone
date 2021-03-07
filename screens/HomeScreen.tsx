@@ -1,46 +1,19 @@
-import * as React from 'react';
-import { StyleSheet, Text } from 'react-native';
-import AlbumCategory from '../components/AlbumCategory';
+import * as React from 'react'
+import { StyleSheet, Text, FlatList } from 'react-native'
 
-import { View } from '../components/Themed';
-
-
-const albumCategory = {
-  id: '1',
-  title: 'Chama na grande papai!',
-  albums: [
-    {
-      id: '1',
-      imageUri: 'https://picsum.photos/200',
-      artistsHeadline: 'Barões da Pisadinha'
-    },
-    {
-      id: '2',
-      imageUri: 'https://picsum.photos/200',
-      artistsHeadline: 'Tarcísio do Acordeon'
-    },
-    {
-      id: '3',
-      imageUri: 'https://picsum.photos/200',
-      artistsHeadline: 'Saia Rodada'
-    },
-    {
-      id: '4',
-      imageUri: 'https://picsum.photos/200',
-      artistsHeadline: 'Gaviões do forró'
-    },
-    {
-      id: '5',
-      imageUri: 'https://picsum.photos/200',
-      artistsHeadline: 'Unha Pintada'
-    },
-  ]
-}
+import AlbumCategory from '../components/AlbumCategory'
+import albumCategories from '../data/AlbumCategories'
+import { View } from '../components/Themed'
 
 export default function TabOneScreen() {
   return (
     <View style={styles.container}>
-     <AlbumCategory title={albumCategory.title} albums={albumCategory.albums} />
+      <FlatList
+        style={{marginTop: 40}}
+        data={albumCategories}
+        renderItem={({item}) => <AlbumCategory title={item.title} albums={item.albums} />}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 }
